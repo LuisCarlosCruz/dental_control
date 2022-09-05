@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 // import { useEffect } from 'react';
 import Button from '../../components/button/Button';
 import Input from '../../components/input/Input';
@@ -30,22 +31,20 @@ const Home = () => {
       const payDays = paymentDates(dateStartPayment, numberParcels);
       if (!payDays) throw new Error();
 
-      console.log(payDays, 'RETURN');
-
       const currentPatient = {
         name,
         procedure,
         valueProcedure,
         numberParcels,
         dateStartPayment,
-        parcelValue
+        parcelValue,
+        payDays
       };
 
       setAllPatients([...allPatients, currentPatient]);
       e.preventDefault();
       e.target.reset();
 
-      // LIMPAR STATE CURRENT
       clearCurrentState(
         setName,
         setProcedure,
@@ -61,20 +60,11 @@ const Home = () => {
     }
   };
 
+  const navigate = useNavigate();
+
   const handleFilter = () => {
-    console.log('FILTROU');
+    navigate('/details');
   };
-
-  // useEffect(() => {
-  //   let year = {};
-  //   const twelve = 12;
-
-  //   for (let i = 1; i <= twelve; i++) {
-  //     year[[i]] = [];
-  //   }
-
-  //   setCalendar(year);
-  // }, []);
 
   return (
     <div>
@@ -99,7 +89,8 @@ const Home = () => {
           </label>
           <button type="submit">Adicionar Serviço</button>
         </form>
-        <Button onClick={handleFilter} text="filtrar" />
+        <br />
+        <Button onClick={handleFilter} text="Filtrar serviços por periodo" />
       </section>
     </div>
   );

@@ -5,29 +5,34 @@ const paymentDates = (dateStartPayment, numberParcels) => {
       timeZone: 'UTC'
     });
 
-    list.push(firstPayment);
+    list.push('0' + firstPayment);
 
     const arrayDate = firstPayment.split('/');
-    const month = arrayDate[0];
+    let month = arrayDate[0];
     const day = arrayDate[1];
-    const year = +arrayDate[2];
+    let year = +arrayDate[2];
 
-    let count = +month;
-    let count2 = 0;
+    let monthNum = +month;
+    // let currentMonth = 0;
 
     const twelve = 12;
 
+    let currentYear = year;
+
     for (let i = 1; i < numberParcels; i++) {
-      count += 1;
+      monthNum += 1;
 
-      if (count > twelve) {
-        const newYear = year + 1;
-        count2 += 1;
+      if (monthNum > twelve) {
+        monthNum = 1;
+        currentYear += 1;
 
-        const parcel = `${count2.toString()}/${day}/${newYear.toString()}`;
+        const parcel = `0${monthNum.toString()}/${day}/${currentYear.toString()}`;
         list.push(parcel);
       } else {
-        const parcel = `${count.toString()}/${day}/${year.toString()}`;
+        let monthString = monthNum;
+        if (monthNum < 10) monthString = '0' + monthNum;
+
+        const parcel = `${monthString.toString()}/${day}/${currentYear.toString()}`;
         list.push(parcel);
       }
     }
