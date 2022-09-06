@@ -13,13 +13,10 @@ const paymentDates = (dateStartPayment, numberParcels) => {
     let year = Number(arrayDate[2]);
 
     const firstDate = `${month}/${day}/${year}`;
-
     list.push(firstDate);
 
     let monthNum = Number(month);
-
     const twelve = 12;
-
     let currentYear = year;
 
     for (let i = 0; i < numberParcels; i++) {
