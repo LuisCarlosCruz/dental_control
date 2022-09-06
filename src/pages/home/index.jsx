@@ -63,7 +63,7 @@ const Home = () => {
   const navigate = useNavigate();
 
   const handleFilter = () => {
-    navigate('/details');
+    navigate('/filter');
   };
 
   return (

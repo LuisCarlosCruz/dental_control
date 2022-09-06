@@ -1,10 +1,10 @@
 import Home from './home';
-import Details from './details/Details';
+import Filter from './filter/Filter';
 import Payments from './payments/Payments';
 
 const PAGES = {
   Home,
-  Details,
+  Filter,
   Payments
 };
 
