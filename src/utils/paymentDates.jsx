@@ -1,3 +1,5 @@
+import formatDate from './formatDate';
+
 const paymentDates = (dateStartPayment, numberParcels) => {
   try {
     const list = [];
@@ -5,34 +7,34 @@ const paymentDates = (dateStartPayment, numberParcels) => {
       timeZone: 'UTC'
     });
 
-    list.push('0' + firstPayment);
-
     const arrayDate = firstPayment.split('/');
-    let month = arrayDate[0];
-    const day = arrayDate[1];
-    let year = +arrayDate[2];
+    let month = formatDate(arrayDate[0]);
+    let day = formatDate(arrayDate[1]);
+    let year = Number(arrayDate[2]);
 
-    let monthNum = +month;
-    // let currentMonth = 0;
+    const firstDate = `${month}/${day}/${year}`;
+
+    list.push(firstDate);
+
+    let monthNum = Number(month);
 
     const twelve = 12;
 
     let currentYear = year;
 
-    for (let i = 1; i < numberParcels; i++) {
+    for (let i = 0; i < numberParcels; i++) {
       monthNum += 1;
 
       if (monthNum > twelve) {
         monthNum = 1;
         currentYear += 1;
 
-        const parcel = `0${monthNum.toString()}/${day}/${currentYear.toString()}`;
+        const parcel = `${formatDate(monthNum)}/${day}/${currentYear.toString()}`;
+
         list.push(parcel);
       } else {
-        let monthString = monthNum;
-        if (monthNum < 10) monthString = '0' + monthNum;
+        const parcel = `${formatDate(monthNum)}/${day}/${currentYear.toString()}`;
 
-        const parcel = `${monthString.toString()}/${day}/${currentYear.toString()}`;
         list.push(parcel);
       }
     }
