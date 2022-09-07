@@ -4,6 +4,7 @@ import convertDate from '../../utils/convertDate';
 import MainContext from '../../store/context/index';
 import Button from '../../components/button/Button';
 import periodFilter from '../../utils/periodFilter';
+import Table from '../../components/table/table';
 
 const Filter = () => {
   const {
@@ -27,7 +28,12 @@ const Filter = () => {
   };
 
   const handleFilter = () => {
-    // VALIDAR AS DATAS ANTES DE FILTRAR
+    const dataInitial = new Date(initialPeriod).getTime();
+    const dataFinal = new Date(finalPeriod).getTime();
+    if (dataInitial > dataFinal) {
+      alert('Data inicial inválida');
+      return false;
+    }
     const patientsFilter = periodFilter(initialPeriod, finalPeriod, allPatients);
     setFilteredPatients(patientsFilter);
   };
@@ -45,26 +51,8 @@ const Filter = () => {
       </label>
       <Button onClick={() => history.back()} text="Voltar" />
       <Button onClick={() => handleFilter()} text="Filtrar" />
-      <Button onClick={() => {}} text="Limpar" />
-      <table>
-        <tbody>
-          <tr>
-            <th>Id</th>
-            <th>Nome</th>
-            <th>valorParcela</th>
-            <th>DataPagamento</th>
-          </tr>
-          {filteredPatients.length > 0 &&
-            filteredPatients.map((patient) => (
-              <tr key={patient.id}>
-                <td>{patient.id}</td>
-                <td>{patient.name}</td>
-                <td>{patient.parcelValue}</td>
-                <td>{patient.date}</td>
-              </tr>
-            ))}
-        </tbody>
-      </table>
+      <Button onClick={() => setFilteredPatients([])} text="Limpar" />
+      <Table filteredPatients={filteredPatients} />
     </div>
   );
 };
