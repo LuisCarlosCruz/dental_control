@@ -9,6 +9,9 @@ const MainProvider = ({ children }) => {
   const [allPatients, setAllPatients] = useState([]);
   const [dateStartPayment, setDateStartPayment] = useState('');
   const [valueParcel, setValueParcel] = useState(0);
+  const [initialPeriod, setInitialPeriod] = useState('');
+  const [finalPeriod, setFinalPeriod] = useState('');
+  const [filteredPatients, setFilteredPatients] = useState([]);
 
   const contextValues = {
     name,
@@ -24,7 +27,13 @@ const MainProvider = ({ children }) => {
     dateStartPayment,
     setDateStartPayment,
     valueParcel,
-    setValueParcel
+    setValueParcel,
+    initialPeriod,
+    setInitialPeriod,
+    finalPeriod,
+    setFinalPeriod,
+    filteredPatients,
+    setFilteredPatients
   };
 
   // console.log(contextValues);
