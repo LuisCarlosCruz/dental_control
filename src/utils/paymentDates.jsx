@@ -18,7 +18,7 @@ const paymentDates = (dateStartPayment, numberParcels) => {
     let currentYear = Number(year);
     const twelve = 12;
 
-    for (let i = 0; i < numberParcels; i++) {
+    for (let i = 1; i < numberParcels; i++) {
       monthNum += 1;
 
       if (monthNum > twelve) {
