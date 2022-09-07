@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import { useEffect } from 'react';
+import id_16 from 'id-16';
 import Button from '../../components/button/Button';
 import Input from '../../components/input/Input';
 import MainContext from '../../store/context';
@@ -24,6 +24,8 @@ const Home = () => {
     setDateStartPayment
   } = useContext(MainContext);
 
+  const id = id_16(5);
+
   const handleSubmit = (e) => {
     try {
       const parcelValue = calculateParcel(valueProcedure, numberParcels);
@@ -32,6 +34,7 @@ const Home = () => {
       if (!payDays) throw new Error();
 
       const currentPatient = {
+        id,
         name,
         procedure,
         valueProcedure,
