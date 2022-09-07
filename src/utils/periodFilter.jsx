@@ -5,8 +5,8 @@ const periodFilter = (initialPeriod, finalPeriod, allPatients) => {
   let list = [];
 
   allPatients.filter((patient) => {
+    const { id, name, parcelValue } = patient;
     return patient.payDays.forEach((date) => {
-      const { id, name, parcelValue } = patient;
       const currentDate = new Date(date).getTime();
 
       if (currentDate <= date2 && currentDate >= date1) {
@@ -15,11 +15,6 @@ const periodFilter = (initialPeriod, finalPeriod, allPatients) => {
       }
     });
   });
-
-  // let sum = 0;
-  // list.forEach((patient) => (sum += Number(patient.parcelValue)));
-
-  // return sum.toFixed(2);
 
   return list;
 };
