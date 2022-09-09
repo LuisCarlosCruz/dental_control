@@ -5,6 +5,7 @@ import MainContext from '../../store/context/index';
 import Button from '../../components/button/Button';
 import periodFilter from '../../utils/periodFilter';
 import Table from '../../components/table/table';
+import sumValuesPeriod from '../../utils/sumValuesPeriod';
 
 const Filter = () => {
   const {
@@ -15,6 +16,8 @@ const Filter = () => {
     allPatients,
     filteredPatients,
     setFilteredPatients
+    // totalValuePeriod,
+    // setTotalValuePeriod
   } = useContext(MainContext);
 
   const handleInitial = (date) => {
@@ -52,6 +55,7 @@ const Filter = () => {
       <Button onClick={() => history.back()} text="Voltar" />
       <Button onClick={() => handleFilter()} text="Filtrar" />
       <Button onClick={() => setFilteredPatients([])} text="Limpar" />
+      <p>R$: {sumValuesPeriod(filteredPatients)}</p>
       <Table filteredPatients={filteredPatients} />
     </div>
   );
