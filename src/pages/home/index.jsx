@@ -7,13 +7,12 @@ import MainContext from '../../store/context';
 import calculateParcel from '../../utils/calculateParcel';
 import clearCurrentState from '../../utils/clearCurrentState';
 import paymentDates from '../../utils/paymentDates';
+import Select from '../../components/select/Select';
 
 const Home = () => {
   const {
     name,
     setName,
-    procedure,
-    setProcedure,
     valueProcedure,
     setValueProcedure,
     numberParcels,
@@ -36,7 +35,6 @@ const Home = () => {
       const currentPatient = {
         id,
         name,
-        procedure,
         valueProcedure,
         numberParcels,
         dateStartPayment,
@@ -48,13 +46,7 @@ const Home = () => {
       e.preventDefault();
       e.target.reset();
 
-      clearCurrentState(
-        setName,
-        setProcedure,
-        setValueProcedure,
-        setNumberParcels,
-        setDateStartPayment
-      );
+      clearCurrentState(setName, setValueProcedure, setNumberParcels, setDateStartPayment);
 
       alert('Serviço Adicionado');
     } catch (Error) {
@@ -64,9 +56,12 @@ const Home = () => {
   };
 
   const navigate = useNavigate();
-
   const handleFilter = () => {
     navigate('/filter');
+  };
+
+  const handleCreateProcedure = () => {
+    navigate('/procedures');
   };
 
   return (
@@ -75,7 +70,8 @@ const Home = () => {
       <section>
         <form onSubmit={handleSubmit}>
           <Input type="text" placeholder="Nome do cliente" onChange={(e) => setName(e)} />
-          <Input type="text" placeholder="Procedimento" onChange={(e) => setProcedure(e)} />
+          {/* <Input type="text" placeholder="Procedimento" onChange={(e) => setProcedure(e)} /> */}
+          <Select />
           <Input
             type="number"
             placeholder="Valor do procedimento"
@@ -92,6 +88,8 @@ const Home = () => {
           </label>
           <button type="submit">Adicionar Serviço</button>
         </form>
+        <br />
+        <Button onClick={handleCreateProcedure} text="Cadastrar procedimento" />
         <br />
         <Button onClick={handleFilter} text="Filtrar serviços por periodo" />
       </section>
