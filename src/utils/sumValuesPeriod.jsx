@@ -3,8 +3,7 @@ const sumValuesPeriod = (filteredPatients) => {
   const sum = filteredPatients.reduce((acc, { parcelValue }) => {
     return acc + Number(parcelValue);
   }, initial);
-  console.log(sum.toFixed(2));
-  return sum;
+  return sum.toFixed(2);
 };
 
 export default sumValuesPeriod;
