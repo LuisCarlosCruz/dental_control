@@ -7,7 +7,7 @@ const MainRoutes = () => (
     <Route path="/" element={<Navigate replace to="/home" />} />
     <Route path="/home" element={<PAGES.Home />} />
     <Route path="/filter" element={<PAGES.Filter />} />
-    <Route path="/Payments" element={<PAGES.Payments />} />
+    <Route path="/procedures" element={<PAGES.Procedures />} />
   </Routes>
 );
 

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import MainContext from '../context';
 
 const MainProvider = ({ children }) => {
+  const listProcedureDefault = ['limpeza', 'clareamento', 'aparelho'];
   const [name, setName] = useState('');
   const [procedure, setProcedure] = useState('');
   const [numberParcels, setNumberParcels] = useState(0);
@@ -12,6 +13,7 @@ const MainProvider = ({ children }) => {
   const [initialPeriod, setInitialPeriod] = useState('');
   const [finalPeriod, setFinalPeriod] = useState('');
   const [filteredPatients, setFilteredPatients] = useState([]);
+  const [procedureList, setProcedureList] = useState(listProcedureDefault);
 
   const contextValues = {
     name,
@@ -33,10 +35,10 @@ const MainProvider = ({ children }) => {
     finalPeriod,
     setFinalPeriod,
     filteredPatients,
-    setFilteredPatients
+    setFilteredPatients,
+    procedureList,
+    setProcedureList
   };
-
-  // console.log(contextValues);
 
   return <MainContext.Provider value={contextValues}>{children}</MainContext.Provider>;
 };
