@@ -4,8 +4,8 @@ import MainContext from '../../store/context';
 const Select = () => {
   const { procedureList } = useContext(MainContext);
   return (
-    <select name="procedures" required>
-      <option value="" selected disabled hidden>
+    <select name="procedures" required defaultValue="">
+      <option value="" disabled hidden>
         Choose here
       </option>
       {procedureList.map((procedure, index) => (
