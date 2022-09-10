@@ -6,7 +6,7 @@ const Select = ({ onChange }) => {
   return (
     <select name="procedures" required defaultValue="" onChange={(e) => onChange(e)}>
       <option value="" disabled hidden>
-        Choose here
+        escolher procedimento
       </option>
       {procedureList.map((procedure, index) => (
         <option key={index} value={procedure}>
