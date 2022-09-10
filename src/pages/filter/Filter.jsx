@@ -16,8 +16,6 @@ const Filter = () => {
     allPatients,
     filteredPatients,
     setFilteredPatients
-    // totalValuePeriod,
-    // setTotalValuePeriod
   } = useContext(MainContext);
 
   const handleInitial = (date) => {
@@ -55,7 +53,7 @@ const Filter = () => {
       <Button onClick={() => history.back()} text="Voltar" />
       <Button onClick={() => handleFilter()} text="Filtrar" />
       <Button onClick={() => setFilteredPatients([])} text="Limpar" />
-      <p>R$: {sumValuesPeriod(filteredPatients)}</p>
+      <p>Valor a receber R$: {sumValuesPeriod(filteredPatients)}</p>
       <Table filteredPatients={filteredPatients} />
     </div>
   );
