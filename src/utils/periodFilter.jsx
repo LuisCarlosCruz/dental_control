@@ -5,12 +5,12 @@ const periodFilter = (initialPeriod, finalPeriod, allPatients) => {
   let list = [];
 
   allPatients.filter((patient) => {
-    const { id, name, parcelValue } = patient;
+    const { id, name, parcelValue, procedure } = patient;
     return patient.payDays.forEach((date) => {
       const currentDate = new Date(date).getTime();
 
       if (currentDate <= date2 && currentDate >= date1) {
-        const newPatient = { id, name, parcelValue, date };
+        const newPatient = { id, name, parcelValue, date, procedure };
         list.push(newPatient);
       }
     });

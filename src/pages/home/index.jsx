@@ -13,6 +13,7 @@ const Home = () => {
   const {
     name,
     setName,
+    procedure,
     setProcedure,
     valueProcedure,
     setValueProcedure,
@@ -36,6 +37,7 @@ const Home = () => {
       const currentPatient = {
         id,
         name,
+        procedure,
         valueProcedure,
         numberParcels,
         dateStartPayment,

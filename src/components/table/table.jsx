@@ -1,4 +1,5 @@
 import React from 'react';
+import convertDate from '../../utils/convertDate';
 
 const Table = ({ filteredPatients }) => {
   return (
@@ -7,6 +8,7 @@ const Table = ({ filteredPatients }) => {
         <tr>
           <th>Id</th>
           <th>Nome</th>
+          <th>Procedimento</th>
           <th>valorParcela</th>
           <th>DataPagamento</th>
         </tr>
@@ -17,8 +19,9 @@ const Table = ({ filteredPatients }) => {
             <tr key={index}>
               <td>{patient.id}</td>
               <td>{patient.name}</td>
+              <td>{patient.procedure}</td>
               <td>{patient.parcelValue}</td>
-              <td>{patient.date}</td>
+              <td>{convertDate(patient.date, true)}</td>
             </tr>
           ))}
       </tbody>
