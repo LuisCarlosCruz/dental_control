@@ -13,6 +13,7 @@ const Home = () => {
   const {
     name,
     setName,
+    setProcedure,
     valueProcedure,
     setValueProcedure,
     numberParcels,
@@ -70,8 +71,7 @@ const Home = () => {
       <section>
         <form onSubmit={handleSubmit}>
           <Input type="text" placeholder="Nome do cliente" onChange={(e) => setName(e)} />
-          {/* <Input type="text" placeholder="Procedimento" onChange={(e) => setProcedure(e)} /> */}
-          <Select />
+          <Select onChange={({ target }) => setProcedure(target.value)} />
           <Input
             type="number"
             placeholder="Valor do procedimento"
