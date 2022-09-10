@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import MainContext from '../../store/context';
 
-const Select = () => {
+const Select = ({ onChange }) => {
   const { procedureList } = useContext(MainContext);
   return (
-    <select name="procedures" required defaultValue="">
+    <select name="procedures" required defaultValue="" onChange={(e) => onChange(e)}>
       <option value="" disabled hidden>
         Choose here
       </option>
