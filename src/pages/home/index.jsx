@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import id_16 from 'id-16';
 import Button from '../../components/button/Button';
 import Input from '../../components/input/Input';
 import MainContext from '../../store/context';
@@ -8,6 +7,7 @@ import calculateParcel from '../../utils/calculateParcel';
 import clearCurrentState from '../../utils/clearCurrentState';
 import paymentDates from '../../utils/paymentDates';
 import Select from '../../components/select/Select';
+import idGenerator from '../../utils/idGenerator';
 
 const Home = () => {
   const {
@@ -25,14 +25,14 @@ const Home = () => {
     setDateStartPayment
   } = useContext(MainContext);
 
-  const id = id_16(5);
-
   const handleSubmit = (e) => {
     try {
       const parcelValue = calculateParcel(valueProcedure, numberParcels);
 
       const payDays = paymentDates(dateStartPayment, numberParcels);
       if (!payDays) throw new Error();
+
+      const id = idGenerator(0, 1000);
 
       const currentPatient = {
         id,
