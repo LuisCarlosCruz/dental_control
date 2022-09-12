@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '../../components/button/Button';
 import Input from '../../components/input/Input';
@@ -25,10 +25,10 @@ const Home = () => {
     allPatients,
     setAllPatients,
     dateStartPayment,
-    setDateStartPayment,
-    statusBtn,
-    setStatusBtn
+    setDateStartPayment
   } = useContext(MainContext);
+
+  const [statusBtn, setStatusBtn] = useState(true);
 
   const handleSubmit = (e) => {
     try {
