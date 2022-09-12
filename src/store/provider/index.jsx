@@ -14,6 +14,7 @@ const MainProvider = ({ children }) => {
   const [finalPeriod, setFinalPeriod] = useState('');
   const [filteredPatients, setFilteredPatients] = useState([]);
   const [procedureList, setProcedureList] = useState(listProcedureDefault);
+  const [statusBtn, setStatusBtn] = useState(true);
 
   const contextValues = {
     name,
@@ -37,7 +38,9 @@ const MainProvider = ({ children }) => {
     filteredPatients,
     setFilteredPatients,
     procedureList,
-    setProcedureList
+    setProcedureList,
+    statusBtn,
+    setStatusBtn
   };
 
   return <MainContext.Provider value={contextValues}>{children}</MainContext.Provider>;
