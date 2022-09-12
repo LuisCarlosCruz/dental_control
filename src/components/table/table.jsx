@@ -20,7 +20,7 @@ const Table = ({ filteredPatients }) => {
               <td>{patient.id}</td>
               <td>{patient.name}</td>
               <td>{patient.procedure}</td>
-              <td>{patient.parcelValue}</td>
+              <td>R$: {patient.parcelValue}</td>
               <td>{convertDate(patient.date, true)}</td>
             </tr>
           ))}
