@@ -1,7 +1,7 @@
 import { notifyWarning } from '../utils/toastNotify';
 
+const reg = /[0-9]+/;
 const validateName = (name, setStatusBtn, setName) => {
-  const reg = /[0-9]+/;
   if (reg.exec(name) || !name) {
     setStatusBtn(true);
     return notifyWarning('Nome inválido');
@@ -21,4 +21,13 @@ const validateStartPaymentDate = (date, setDateStartPayment, setStatusBtn) => {
   setDateStartPayment(date);
 };
 
-export { validateName, validateStartPaymentDate };
+const validateProcedure = (procedure, setProcedure, setStatusBtn) => {
+  if (reg.exec(procedure) || !procedure) {
+    setStatusBtn(true);
+    return notifyWarning('Procedimento inválido');
+  }
+  setStatusBtn(false);
+  setProcedure(procedure);
+};
+
+export { validateName, validateStartPaymentDate, validateProcedure };
