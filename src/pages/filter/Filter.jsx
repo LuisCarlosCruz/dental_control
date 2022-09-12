@@ -6,6 +6,7 @@ import Button from '../../components/button/Button';
 import periodFilter from '../../utils/periodFilter';
 import Table from '../../components/table/table';
 import sumValuesPeriod from '../../utils/sumValuesPeriod';
+import { notifyError, ToastNotify } from '../../utils/toastNotify';
 
 const Filter = () => {
   const {
@@ -32,7 +33,7 @@ const Filter = () => {
     const dataInitial = new Date(initialPeriod).getTime();
     const dataFinal = new Date(finalPeriod).getTime();
     if (dataInitial > dataFinal) {
-      alert('Data inicial inválida');
+      notifyError('Data inicial inválida');
       return false;
     }
     const patientsFilter = periodFilter(initialPeriod, finalPeriod, allPatients);
@@ -52,6 +53,7 @@ const Filter = () => {
       </label>
       <Button onClick={() => history.back()} text="Voltar" />
       <Button onClick={() => handleFilter()} text="Filtrar" />
+      <ToastNotify />
       <Button onClick={() => setFilteredPatients([])} text="Limpar" />
       <p>Valor a receber R$: {sumValuesPeriod(filteredPatients)}</p>
       <Table filteredPatients={filteredPatients} />
