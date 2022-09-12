@@ -2,29 +2,26 @@ import React, { useContext } from 'react';
 import Button from '../../components/button/Button';
 import Input from '../../components/input/Input';
 import MainContext from '../../store/context';
+import { notifyError, notifySuccess, notifyWarning, ToastNotify } from '../../utils/toastNotify';
 
 const Procedures = () => {
   const { procedure, setProcedure, procedureList, setProcedureList } = useContext(MainContext);
 
   const handleCreateProcedure = () => {
     if (!procedure) {
-      return alert('Campo inválido');
+      return notifyError('Procedimento inválido');
     }
     if (procedureList.includes(procedure)) {
-      return alert('Esse procedimento já existe');
+      return notifyWarning('Esse procedimento já existe');
     }
     setProcedureList([...procedureList, procedure]);
   };
 
   const handleRemoveProcedure = (item) => {
-    if (!procedureList.includes(item)) {
-      return alert('Esse procedimento não existe');
-    }
-
     const newListProcedure = procedureList.filter((proced) => proced !== item);
     setProcedureList(newListProcedure);
     setProcedure('');
-    alert('procedimento removido');
+    return notifySuccess('Procedimento removido');
   };
 
   return (
@@ -32,6 +29,7 @@ const Procedures = () => {
       <p>PROCEDURES</p>
       <Input type="text" placeholder="Procedimento" onChange={(e) => setProcedure(e)} required />
       <Button onClick={handleCreateProcedure} text="Cadastrar procedimento" />
+      <ToastNotify />
       <Button onClick={() => history.back()} text="Voltar" />
       <ul>
         {procedureList.map((procedure, index) => {
