@@ -33,8 +33,7 @@ const Filter = () => {
     const dataInitial = new Date(initialPeriod).getTime();
     const dataFinal = new Date(finalPeriod).getTime();
     if (dataInitial > dataFinal) {
-      notifyError('Data inicial inválida');
-      return false;
+      return notifyError('Data inicial inválida');
     }
     const patientsFilter = periodFilter(initialPeriod, finalPeriod, allPatients);
     setFilteredPatients(patientsFilter);
