@@ -9,6 +9,9 @@ import paymentDates from '../../utils/paymentDates';
 import Select from '../../components/select/Select';
 import idGenerator from '../../utils/idGenerator';
 
+import { notifySuccess, notifyWarning, ToastNotify } from '../../utils/toastNotify';
+import { validateName, validateStartPaymentDate } from '../../validations/validadeInputs';
+
 const Home = () => {
   const {
     name,
@@ -22,7 +25,9 @@ const Home = () => {
     allPatients,
     setAllPatients,
     dateStartPayment,
-    setDateStartPayment
+    setDateStartPayment,
+    statusBtn,
+    setStatusBtn
   } = useContext(MainContext);
 
   const handleSubmit = (e) => {
@@ -49,11 +54,18 @@ const Home = () => {
       e.preventDefault();
       e.target.reset();
 
-      clearCurrentState(setName, setValueProcedure, setNumberParcels, setDateStartPayment);
+      clearCurrentState(
+        setName,
+        setProcedure,
+        setValueProcedure,
+        setNumberParcels,
+        setDateStartPayment
+      );
 
-      alert('Serviço Adicionado');
+      setStatusBtn(true);
+      notifySuccess('Serviço Adicionado');
     } catch (Error) {
-      alert('Data inválida');
+      notifyWarning('Data inválida');
       location.reload(true);
     }
   };
@@ -72,7 +84,11 @@ const Home = () => {
       <h3>Dentista</h3>
       <section>
         <form onSubmit={handleSubmit}>
-          <Input type="text" placeholder="Nome do cliente" onChange={(e) => setName(e)} />
+          <Input
+            type="text"
+            placeholder="Nome do cliente"
+            onChange={(name) => validateName(name, setStatusBtn, setName)}
+          />
           <Select onChange={({ target }) => setProcedure(target.value)} />
           <Input
             type="number"
@@ -86,9 +102,15 @@ const Home = () => {
           />
           <label>
             Primeiro pagamento:
-            <Input type="date" onChange={(e) => setDateStartPayment(e)} />
+            <Input
+              type="date"
+              onChange={(date) => validateStartPaymentDate(date, setDateStartPayment, setStatusBtn)}
+            />
           </label>
-          <button type="submit">Adicionar Serviço</button>
+          <button type="submit" disabled={statusBtn}>
+            Adicionar Serviço
+          </button>
+          <ToastNotify />
         </form>
         <br />
         <Button onClick={handleCreateProcedure} text="Cadastrar procedimento" />
