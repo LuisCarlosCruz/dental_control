@@ -1,0 +1,129 @@
+.home {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  font-family: 'Arimo', sans-serif;
+}
+
+.form > h3 {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 400;
+  margin-bottom: 16px;
+}
+
+
+.section-inputs {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 50%;
+}
+
+
+.form {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid rgb(201, 238, 255);
+  border-radius: 5px;
+  background-color: #f2faff;
+  padding: 20px;
+  max-width: 700px;
+}
+
+.input {
+  padding: 1rem;
+  border: 1px solid #ddf7ff;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 16px;
+  background-color: #fff
+}
+
+.input > option {
+  position: absolute;
+  font-size: 16px;
+  background-color: rgb(220, 238, 255);
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
+.form > button {
+  background-color: #00a1e0;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.form > button[disabled] {
+  background-color: #a0a0a0;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: not-allowed;
+}
+
+.createButton {
+  background-color: #00bd5e;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  padding: 8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px;
+  cursor: pointer;
+  border: 1px solid #00bd5e;
+}
+
+.createButton:hover {
+  transition: 0.3s;
+  background-color: #fff;
+  color: #00bd5e;
+}
+
+.filterButton {
+  background-color: #00cdd4;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  padding: 8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px;
+  cursor: pointer;
+  border: 1px solid #00cdd4;
+}
+
+.filterButton:hover {
+  transition: 0.3s;
+  background-color: #fff;
+  color: #00cdd4;
+}
+
+div {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  margin-top: 5px;
+}
