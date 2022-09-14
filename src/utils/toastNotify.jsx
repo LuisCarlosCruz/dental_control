@@ -11,11 +11,7 @@ const notifyWarning = (message) =>
 const notifyError = (message) => toast.error(message, { position: 'top-center', autoClose: 2000 });
 
 const ToastNotify = () => {
-  return (
-    <div>
-      <ToastContainer />
-    </div>
-  );
+  return <ToastContainer />;
 };
 
 export { ToastNotify, notifySuccess, notifyWarning, notifyError };
