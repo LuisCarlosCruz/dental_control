@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '../../components/button/Button';
 import Input from '../../components/input/Input';
@@ -8,6 +8,7 @@ import clearCurrentState from '../../utils/clearCurrentState';
 import paymentDates from '../../utils/paymentDates';
 import Select from '../../components/select/Select';
 import idGenerator from '../../utils/idGenerator';
+import './home.css';
 
 import { notifySuccess, notifyWarning, ToastNotify } from '../../utils/toastNotify';
 import { validateName, validateStartPaymentDate } from '../../validations/validadeInputs';
@@ -27,8 +28,6 @@ const Home = () => {
     dateStartPayment,
     setDateStartPayment
   } = useContext(MainContext);
-
-  const [statusBtn, setStatusBtn] = useState(true);
 
   const handleSubmit = (e) => {
     try {
@@ -62,13 +61,14 @@ const Home = () => {
         setDateStartPayment
       );
 
-      setStatusBtn(true);
       notifySuccess('Serviço Adicionado');
     } catch (Error) {
       notifyWarning('Data inválida');
       location.reload(true);
     }
   };
+
+  const disabledBtn = !name || !procedure || !valueProcedure || !numberParcels || !dateStartPayment;
 
   const navigate = useNavigate();
   const handleFilter = () => {
@@ -80,14 +80,14 @@ const Home = () => {
   };
 
   return (
-    <div>
-      <h3>Dentista</h3>
-      <section>
-        <form onSubmit={handleSubmit}>
+    <div className="home">
+      <section className="section-inputs">
+        <form onSubmit={handleSubmit} className="form">
+          <h3>Dentista</h3>
           <Input
             type="text"
             placeholder="Nome do cliente"
-            onChange={(name) => validateName(name, setStatusBtn, setName)}
+            onChange={(name) => validateName(name, setName)}
           />
           <Select onChange={({ target }) => setProcedure(target.value)} />
           <Input
@@ -100,22 +100,28 @@ const Home = () => {
             placeholder="Quantidade de parcelas"
             onChange={(e) => setNumberParcels(e)}
           />
-          <label>
-            Primeiro pagamento:
-            <Input
-              type="date"
-              onChange={(date) => validateStartPaymentDate(date, setDateStartPayment, setStatusBtn)}
-            />
-          </label>
-          <button type="submit" disabled={statusBtn}>
+          Primeiro pagamento:
+          <Input
+            type="date"
+            onChange={(date) => validateStartPaymentDate(date, setDateStartPayment)}
+          />
+          <button type="submit" disabled={disabledBtn}>
             Adicionar Serviço
           </button>
           <ToastNotify />
+          <div>
+            <Button
+              className={'createButton'}
+              onClick={handleCreateProcedure}
+              text="Cadastrar procedimento"
+            />
+            <Button
+              className={'filterButton'}
+              onClick={handleFilter}
+              text="Filtrar serviços por periodo"
+            />
+          </div>
         </form>
-        <br />
-        <Button onClick={handleCreateProcedure} text="Cadastrar procedimento" />
-        <br />
-        <Button onClick={handleFilter} text="Filtrar serviços por periodo" />
       </section>
     </div>
   );
