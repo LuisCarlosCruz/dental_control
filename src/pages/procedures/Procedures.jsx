@@ -19,6 +19,7 @@ const Procedures = () => {
       setProcedure('');
       return notifyWarning('Esse procedimento já existe');
     }
+    notifySuccess('Procedimento cadastrado');
     setProcedureList([...procedureList, procedure]);
   };
 
