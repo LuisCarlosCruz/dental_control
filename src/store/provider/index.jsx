@@ -10,7 +10,7 @@ const MainProvider = ({ children }) => {
     'aparelho',
     'implante',
     'restauração',
-    'controle De Cárie'
+    'controle de cárie'
   ];
   const [name, setName] = useState('');
   const [procedure, setProcedure] = useState('');
