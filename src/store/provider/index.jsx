@@ -2,7 +2,16 @@ import React, { useState } from 'react';
 import MainContext from '../context';
 
 const MainProvider = ({ children }) => {
-  const listProcedureDefault = ['limpeza', 'clareamento', 'aparelho'];
+  const listProcedureDefault = [
+    'consulta',
+    'manutenção',
+    'limpeza',
+    'clareamento',
+    'aparelho',
+    'implante',
+    'restauração',
+    'controle De Cárie'
+  ];
   const [name, setName] = useState('');
   const [procedure, setProcedure] = useState('');
   const [numberParcels, setNumberParcels] = useState(0);

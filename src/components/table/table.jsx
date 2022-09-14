@@ -9,8 +9,8 @@ const Table = ({ filteredPatients }) => {
           <th>Id</th>
           <th>Nome</th>
           <th>Procedimento</th>
-          <th>valorParcela</th>
-          <th>DataPagamento</th>
+          <th>valor Parcela</th>
+          <th>Data Pagamento</th>
         </tr>
       </thead>
       <tbody>

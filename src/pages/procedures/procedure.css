@@ -1,0 +1,96 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 32px 32px;
+  margin: 0 auto;
+  width: 700px;
+  border: 1px solid #00cdd4;
+  border-radius: 4px;
+  font-family: 'Arimo', sans-serif;
+  background-color: #fff
+}
+
+div > h3 {
+  font-size: 32px;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.container > button {
+  background-color: #00bd5e;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px;
+  cursor: pointer;
+  border: 1px solid #00bd5e;
+}
+
+.container > button:hover {
+  transition: 0.3s;
+  background-color: #fff;
+  color: #00bd5e;
+}
+  
+.container > button[disabled] {
+  cursor: not-allowed;
+}
+
+.container > span {
+  padding: 16px;
+  max-height: 400px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.procedureList {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 10px;
+}
+
+.procedureList > div {
+  display: flex;
+  justify-content: end;
+}
+
+.procedureList > div > button {
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgb(209, 0, 0);
+  color: white;
+}
+
+.procedureList > div > button:hover {
+  transform: rotate(-180deg);
+  transition: 0.4s;
+  font-size: 30px
+}
+
+.procedureList > p {
+  text-transform: capitalize;
+}
+
+.back {
+  background-color: #00cdd4;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  cursor: pointer;
+  border: 1px solid #00cdd4;
+}
+

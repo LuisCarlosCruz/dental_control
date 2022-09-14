@@ -7,6 +7,7 @@ import periodFilter from '../../utils/periodFilter';
 import Table from '../../components/table/table';
 import sumValuesPeriod from '../../utils/sumValuesPeriod';
 import { notifyError, ToastNotify } from '../../utils/toastNotify';
+import './filter.css';
 
 const Filter = () => {
   const {
@@ -40,20 +41,24 @@ const Filter = () => {
   };
 
   return (
-    <div>
+    <div className="container">
       <h2>FILTRAR POR PERIODO</h2>
-      <label>
-        data inicial:
-        <Input type="date" onChange={(date) => handleInitial(date)} />
-      </label>
-      <label>
-        data final:
-        <Input type="date" onChange={(date) => handleFinal(date)} />
-      </label>
-      <Button onClick={() => history.back()} text="Voltar" />
-      <Button onClick={() => handleFilter()} text="Filtrar" />
+      <section>
+        <div>
+          data inicial:
+          <Input type="date" onChange={(date) => handleInitial(date)} />
+        </div>
+        <div>
+          data final:
+          <Input type="date" onChange={(date) => handleFinal(date)} />
+        </div>
+      </section>
+      <div className="buttonsContainer">
+        <Button onClick={() => handleFilter()} text="Filtrar" className="filter" />
+        <Button onClick={() => setFilteredPatients([])} text="Limpar" className="clear" />
+        <Button onClick={() => history.back()} text="Voltar" className="back" />
+      </div>
       <ToastNotify />
-      <Button onClick={() => setFilteredPatients([])} text="Limpar" />
       <p>Valor a receber R$: {sumValuesPeriod(filteredPatients)}</p>
       <Table filteredPatients={filteredPatients} />
     </div>
