@@ -1,74 +1,205 @@
-.container {
-  display: flex;
-  font-family: 'Arimo', sans-serif;
+@media only screen and (min-width: 768px) {
+  .container {
+    display: flex;
+    font-family: 'Arimo', sans-serif;
+  }
+  
+  .container > h2 {
+    text-align: center;
+    margin-bottom: 16px;
+    font-size: 32px;
+    font-weight: 400;
+  }
+  
+  .container > section {
+    display: flex;
+    justify-content: space-around;
+    overflow: hidden;
+  }
+  
+  .container > section > div {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+  }
+  
+  .filter {
+    background-color: #00bd5e;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .clear {
+    background-color: #d3be00;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .buttonsContainer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 26px;
+  }
+  
+  .container > p {
+    font-size: 23px;
+    margin-bottom: 16px;
+    text-align: center;
+    color: green;
+    font-weight: 500;
+  }
+  
+  th, td {
+    text-align: center;
+    font-size: 16px;
+    padding: 1rem;
+  }
+  
+  tbody:nth-child(even) {
+    background-color: rgb(214, 214, 214);
+  }
+  
+  thead {
+    background-color: rgb(168, 168, 168);
+  }
 }
 
-.container > h2 {
-  text-align: center;
-  margin-bottom: 16px;
-  font-size: 32px;
-  font-weight: 400;
-}
+/*  MOBILE  */
+@media screen and (max-width: 768px) {
+  .container {
+    display: flex;
+    font-family: 'Arimo', sans-serif;
+  }
+  
+  .container > h2 {
+    text-align: center;
+    margin-bottom: 16px;
+    font-size: 22px;
+    font-weight: 400;
+  }
+  
+  .container > section {
+    display: flex;
+    justify-content: space-around;
+    overflow: hidden;
+  }
+  
+  .container > section > div {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+  }
 
-.container > section {
-  display: flex;
-  justify-content: space-around;
-  overflow: hidden;
-}
+  .input {
+    width: auto;
+    padding: 5px;
+    font-size: 18px;
+  }
+  
+  .filter {
+    background-color: #00bd5e;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .clear {
+    background-color: #d3be00;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .buttonsContainer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 26px;
+  }
+  
+  .container > p {
+    font-size: 24px;
+    margin-bottom: 16px;
+    text-align: center;
+    color: green;
+  }
+  
+  th, td {
+    text-align: center;
+    font-size: 16px;
+    padding: 1rem;
+  }
+  
+  thead {
+    background-color: rgb(26, 157, 218);
+  }
 
-.container > section > div {
-  display: flex;
-  flex-direction: column;
-  width: 200px;
-}
+  table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
 
-.filter {
-  background-color: #00bd5e;
-  border-radius: 5px;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 14px;
-  cursor: pointer;
-}
+  table, thead, tbody, th, td, tr { 
+		display: block;
+	}
+	
+	thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	tr { 
+    border: 3px solid rgb(83, 177, 221);
+    border-radius: 5px;
+    margin: 2px;
 
-.clear {
-  background-color: #d3be00;
-  border-radius: 5px;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 14px;
-  cursor: pointer;
-}
+  }
+	
+	td {
+		border: none;
+		border-bottom: 1px solid rgb(216, 216, 216); 
+		position: relative;
+		padding-left: 50%; 
+    text-align: start;
+	}
+	
+	td:before { 
+		position: absolute;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px;
+    text-align: start;
+		white-space: nowrap;
+	}
 
-.buttonsContainer {
-  display: flex;
-  align-items: center;
-  margin-bottom: 26px;
-}
-
-.container > p {
-  font-size: 23px;
-  margin-bottom: 16px;
-}
-
-th, td {
-  text-align: center;
-  font-size: 16px;
-  padding: 1rem;
-}
-
-tbody:nth-child(even) {
-  background-color: rgb(214, 214, 214);
-}
-
-thead {
-  background-color: rgb(168, 168, 168);
+  td:nth-of-type(1):before { content: "Id"; }
+	td:nth-of-type(2):before { content: "Nome"; }
+	td:nth-of-type(3):before { content: "Procedimento"; }
+	td:nth-of-type(4):before { content: "Valor da parcela"; }
+	td:nth-of-type(5):before { content: "Data pagamento"; }
 }
