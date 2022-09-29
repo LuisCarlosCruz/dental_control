@@ -41,6 +41,7 @@
 
 - Ao cadastrar um novo procedimento, ele estará disponivel no página principal para ser utilizado para cadastrar um serviço desse novo procedimento.
 <img src="./src/assets/captura4.png" alt="imagem da página principal com o novo procedimento">
+
 ---
 <br>
 
@@ -49,7 +50,7 @@
 <img src="./src/assets/captura5.png" alt="imagem da página de filtro de serviço por período">
 
 ---
-
+<br>
 
 <details>
   <summary>
