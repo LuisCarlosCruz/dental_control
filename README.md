@@ -24,12 +24,14 @@
 ><h3>✅ Caso de Sucesso </h3>
 - Nessa tela podemos ver como exemplo o cadastro de um serviço, que após a validação das informações (```nome```/ ```procedimento```/ ```n° de parcelas```/ ```data do primeiro pagamento```) é habilitado o botão (```Adicionar Serviço```) para que seja realizado o cadastro com sucesso.
 <img src="./src/assets/captura1.png" alt="imagem cadastro serviço com sucesso">
+
 ---
 <br>
 
 ><h3>❌ Caso de Exceção </h3>
 - Aqui temos um caso de excessao onde as informações foram passadas de maneira incorreta. Pensando nesse caso foi desenvolvido validações para cada campo de entrada (```input```). E caso esse campo não seja valido Érica receba uma notificação referente a essa informação inválida e o botão para cadastro de serviço permace desabilitado.
 <img src="./src/assets/captura2.png" alt="imagem de erro ao cadastrar serviço">
+
 ---
 <br>
 
@@ -45,6 +47,7 @@
 ><h3>📅 Filtro por Período </h3>
 - Após cadastrar os serviços, na página principal no canto inferior direito, Érica poderá ter acesso ao valor total que será recebido em sua clínica em um determinado período de tempo, ou seja, através de um filtro de uma data específica ela poderá  ter acesso a uma tabela com diversas informações, como valor total que será recebido nesse período, quais procedimentos, valores mensais de cada procedimento e quais pacientes.
 <img src="./src/assets/captura5.png" alt="imagem da página de filtro de serviço por período">
+
 ---
 
 
